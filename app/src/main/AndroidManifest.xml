@@ -16,7 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DisplayMessageActivity"></activity>
+        <!-- Each screen that is not the main entrance should have navigation back to its logical parent screen -->
+            <!-- in the app hierarchy by pressing the Up button in the app bar -->
+        <!-- Here declare which activity is the logical parent -->
+        <activity android:name=".DisplayMessageActivity"
+                  android:parentActivityName=".MainActivity">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>
